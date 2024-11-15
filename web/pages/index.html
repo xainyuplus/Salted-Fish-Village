@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>贤愚和菲菲的小站</title>
+    <style>
+        .container {
+            width: 60%;
+            margin: 10% auto 0;
+            background-color: #f0f0f0;
+            padding: 2% 5%;
+            border-radius: 10px
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+            ul li {
+                line-height: 2.3
+            }
+
+        a {
+            color: #20a53a
+        }
+         @charset "utf-8";
+/* CSS Document */
+ 
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+ 
+/*侧边栏选择器*/
+.sidenav {
+    height: 100%;
+    width: 0; /*原始宽度*/
+    position: fixed;
+    /*z-index、top、left共同控制侧栏的悬浮（上方1，下方-1）*/
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s; /*侧栏延迟0.5s显示*/
+    padding-top: 60px;
+}
+ 
+/*侧边栏标签选择器*/
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; /*标签延迟0.3s显示*/
+}
+ 
+/*侧栏标签和关闭按钮光标的效果*/
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+ 
+/*侧栏和关闭按钮的位置选择器*/
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+ 
+/*主体内容*/
+#main {
+    transition: margin-left .5s;/*主体内容延迟0.5s整体y右移动*/
+    padding: 16px;
+}
+ 
+/*当文档高度小于450px时，改变侧栏的padding属性和字体大小*/
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    </style>
+</head>
+<body>
+    
+     <a href="transfer.html" style="position: absolute;right: 0px;color: #da6d6d;font-size: 25px;">&&</a><span style="position: absolute;font-size: 25px;right: 9px;color:#da6d6d;z-index: -1;">!&nbsp;&nbsp;!</span>
+    <div id="main">
+        <div id="mySidenav" class="sidenav">
+             <input type="button" value="添加" onclick=" add()" style="padding-bottom: 0%;">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+     
+<?php   
+include('updatejournal_show.php')
+?>
+          </div>
+        
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; 更新日志</span>
+      </div>
+    <div class="container">
+         <span>距离小李返回北京还有:</span><div id="countdown">：</div>
+        <h3>    嗨~
+        <br>欢迎来到贤愚和菲菲的小站: )</h3>
+        <p>制作好了一个猜数字的小游戏
+  
+            
+            <br>其玩法如下：
+            <br>双人游戏。
+            <br>一人（A）心中暗想一个四位数码，每位可以是0~9中任意数字，但数字不可重复。（如不能是：2432，因为有两个2）
+            <br>另一人（B）猜测这个四位数码，并告诉A。
+            <br> A给出如下格式的答复：
+            <br>【若B的猜测中有m个数字出现在正确答案中，则回答“m阴”】
+            <br>【若B的猜测中有n个数字出现在正确答案中，且数位正确，则回答“n阳”】
+            <br> {例}
+            <br>A想的数码是 3482
+            <br>若B猜测 1234 ，则A回答“3阴 0阳”
+            <br>若B猜测 6783 ，则A回答“1阴 1阳”
+            
+            <br>若B在7轮内猜中，则B胜；反之，则A胜。</p>
+            <hr>
+        <h4>游戏入口</h4>
+        <ul><li1><a href="猜数字游戏（程序猜）.html" target="_blank">你想数字程序来猜</a></li1>
+            <br>
+        <li2><a href="猜数字游戏（你来猜）.html" target="_blank">生成随机数你来猜 </a></li2></ul>
+        
+    </div>
+    <div class="container">
+        <h2>好文推荐</h2>
+        <ul><li><a href="txt1.html">《扁平时代的写作》——韩少功</a></li>
+        <li><a href="美的历程.docx">《美的历程》</a></li>
+        <li><a href="便签.html">随手写</a></li></ul>
+        <li><a href="upload.html">上传文件入口</a></li></ul>
+    </div>
+    <script type="text/javascript">
+        /*打开侧栏，修改侧栏宽度，主体左跨度、背景透明度*/
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+            /*关闭侧栏，恢复原始侧栏宽度，主体左跨度、背景透明度*/
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            document.body.style.backgroundColor = "white";
+            }
+        </script>
+
+         <script>
+//用来写更新日志的一些函数
+function add(){
+window.open("submit_update_journal.php", "", "width=400,height=300")
+location.reload() ;
+
+}
+
+
+
+        </script>
+        
+        <script>
+        //复制来的倒计时功能函数
+function countdown() {
+  var countdownDate = new Date("2024-10-7 21:20:00").getTime(); // 设置倒计时的截止日期，可以修改为你所需的日期
+
+  var x = setInterval(function() {
+    var now = new Date().getTime(); // 获取当前时间
+    var distance = countdownDate - now; // 计算距离截止日期的时间差
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24)); // 计算天数
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // 计算小时数
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // 计算分钟数
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000); // 计算秒数
+
+    var countdownElement = document.getElementById("countdown"); // 获取倒计时显示的元素
+    countdownElement.innerHTML = days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒"; // 更新倒计时显示
+
+    if (distance < 0) {
+      clearInterval(x); // 倒计时结束后清除定时器
+      countdownElement.innerHTML = "倒计时已结束"; // 显示倒计时结束的提示
+    }
+  }, 1000); // 每隔 1 秒更新一次倒计时
+}
+
+countdown(); // 调用倒计时函数
+</script>
+<footer>
+        <p style="color:&#0000;">版权所有：归作者个人所有 备案号:</a >
+           <a style="margin-left:10px;color:#20a53a;" target="_blank" rel="noopener" href="https://beian.miit.gov.cn">豫ICP备2024048643号</a >
+        </p >
+</footer>
+</body> 
+</html>
